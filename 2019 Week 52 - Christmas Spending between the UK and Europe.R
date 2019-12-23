@@ -41,7 +41,7 @@ ggplot(compare_amounts,
             size = 5, 
             hjust = -0.1) +  
   labs(title="Comparing Average Holiday Spending between the UK and Europe",
-       subtitle = "Planned spending on travel in the UK will increase 21.6% from 2018 while the rest of Europe will increase just 5.6%.\nMeanwhile, planned spending on socializing will fall 7.4% in the UK whereas in Europe it will grow 4.7%.",
+       subtitle = "Planned spending on travel in the UK will increase 21.6% from 2018 while Europe will increase 5.6%.\nMeanwhile, planned spending on socializing will fall 7.4% in the UK whereas in Europe it will grow 4.7%.",
        y = "Percent Change between 2018 and 2019",
        x = "Category",
        caption = "\nSpending adjusted to British Pound for an average exchange rate of 1EUR = 0.887586GBP. Survey was collected among 7,190 people between September 16-October 11, 2019 in Europe.\nVisualization by Alex Elfering | Source: Deloitte 2019 Christmas Survey via #MakeoverMonday") +
