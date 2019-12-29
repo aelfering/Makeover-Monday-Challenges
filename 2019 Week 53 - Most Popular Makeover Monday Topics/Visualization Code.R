@@ -38,6 +38,8 @@ mmonday_top_10_flag <- left_join(mmonday_18_19, mmonday_top_10, by = c('Subject'
 mmonday_top_10_flag <- mmonday_top_10_flag %>%
   mutate(Top_10_Flag = ifelse(Download_Rank <= 10, TRUE, FALSE))
 
+subtl <- c("#MakeoverMonday datasets have been downloaded a combined 14,657 times this year, up from 1,759 times last year through Week 52*. The weekly challenge, led by Andy Kriebel (@VizWizBI), Eva Murray\n(@TriMyData), and Charlie Hutcheson (@CharlieHTableau), encourages data-savvy folks across the world to create more effective visualizations that communicate better with end users. The challenge covers\ndiverse topics from sports, to politics, to the environment, and technology.")
+
 ggplot(mmonday_top_10_flag, aes(x = date, y = Downloads)) +
   geom_step(color = 'gray') +
   geom_point(shape = 21,
@@ -47,9 +49,12 @@ ggplot(mmonday_top_10_flag, aes(x = date, y = Downloads)) +
              stroke = 1) +
   theme_minimal() +
   labs(title = "#MakeoverMonday Week 53: Do Downloads Correlate with Submissions?",
-       subtitle = "The number of #MakeoverMonday dataset downloads this year sits at 14,657 up from 1,759 downloads last year* through Week 52",
-       caption = "\n*2018 had 52 total weeks of challenges while 2019 will end with 53 total weeks of challenges.\nSource:Data-World\nVisualization by Alex Elfering") +
-  geom_label(aes(x = as.Date('2019-06-15', "%Y-%m-%d"), y = 750, label = "The 10 most popular\ndownloads were all in\nthe latter half of this year."), 
+       x = 'Week',
+       y = 'Total Downloads',
+       subtitle = subtl,
+       caption = "\n*2018 had 52 total weeks of challenges while 2019 will end with 53 total weeks of challenges.\nSource: Data.World | Visualization by Alex Elfering") +
+  theme(plot.title = element_text(hjust = 0.5, size = 20, face = "bold")) +
+  geom_label(aes(x = as.Date('2019-06-15', "%Y-%m-%d"), y = 750, label = "The 10 most popular\ndatasets were all in\nthe latter half of 2019."), 
              hjust = 0, just = 0.5, colour = "#555555", 
              fill = "white", label.size = NA, family="Helvetica", size = 3) +
   geom_curve(aes(x = as.Date('2019-07-22', "%Y-%m-%d"), y = 790, xend = as.Date('2019-10-21', "%Y-%m-%d"), yend = 810), 
