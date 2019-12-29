@@ -51,7 +51,13 @@ ggplot(mmonday_top_10_flag, aes(x = date, y = Downloads)) +
        caption = "\n*2018 had 52 total weeks of challenges while 2019 will end with 53 total weeks of challenges.\nSource:Data-World\nVisualization by Alex Elfering") +
   geom_label(aes(x = as.Date('2019-06-15', "%Y-%m-%d"), y = 750, label = "The 10 most popular\ndownloads were all in\nthe latter half of this year."), 
              hjust = 0, just = 0.5, colour = "#555555", 
-             fill = "white", label.size = NA, family="Helvetica", size = 3)
+             fill = "white", label.size = NA, family="Helvetica", size = 3) +
+  geom_curve(aes(x = as.Date('2019-07-22', "%Y-%m-%d"), y = 790, xend = as.Date('2019-10-21', "%Y-%m-%d"), yend = 810), 
+             colour = "#555555", 
+             size=0.1, 
+             curvature = -0.2,
+             arrow = arrow(length = unit(0.01, "npc")))
+  
 
 
 
