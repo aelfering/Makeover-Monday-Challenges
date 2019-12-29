@@ -39,8 +39,14 @@ mmonday_top_10_flag <- left_join(mmonday_18_19, mmonday_top_10, by = c('Subject'
 mmonday_top_10_flag <- mmonday_top_10_flag %>%
   mutate(Top_10_Flag = ifelse(Download_Rank <= 10, TRUE, FALSE))
 
+mmonday_top_10_flag %>%
+  group_by(Top_10_Flag) %>%
+  summarise(Downloads = sum(Downloads))
+
+7602/14657
+
 ####  Final visualization ####
-subtl <- c("#MakeoverMonday datasets have been downloaded a combined 14,657 times this year, up from 1,759 times last year through Week 52*. In the latter half of 2019, there is a considerable increase in downloads from October through mid-December.")
+subtl <- c("#MakeoverMonday datasets have been downloaded a combined 14,657 times this year, up from 1,759 times last year through Week 52*. In the latter half of 2019, there is a considerable increase in downloads\nfrom October through mid-December. The top 10 downloaded datasets so far were all in the latter half of 2019, and made up roughly 52% of all downloads this year.")
 
 ggplot(mmonday_top_10_flag, aes(x = date, y = Downloads)) +
   geom_step(color = 'gray') +
