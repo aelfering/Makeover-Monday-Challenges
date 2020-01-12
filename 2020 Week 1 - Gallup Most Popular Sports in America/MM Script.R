@@ -80,22 +80,29 @@ base_graph +
         subtitle = "")
 
 base_graph +
+  # Soccer
   geom_label(aes(x = as.Date("2017-05-01"), y = 0.07, label = "Soccer"), 
              hjust = 0, vjust = 0.5, colour = "#555555", 
              fill = "white", label.size = NA, family="Helvetica", size = 4) +
   geom_segment(aes(x = as.Date("2017-04-30"), y = 0.07, xend = as.Date("2017-01-30"), yend = 0.07), 
                colour = "#555555", size=0.5) +
-  
+  # Basketball
   geom_label(aes(x = as.Date("2017-05-01"), y = 0.11, label = "Basketball"), 
              hjust = 0, vjust = 0.5, colour = "#555555", 
              fill = "white", label.size = NA, family="Helvetica", size = 4) +  
   geom_segment(aes(x = as.Date("2017-04-30"), y = 0.11, xend = as.Date("2017-01-30"), yend = 0.11), 
                colour = "#555555", size=0.5) +
-  
+  # Baseball
   geom_label(aes(x = as.Date("2017-05-01"), y = 0.09, label = "Baseball"), 
              hjust = 0, vjust = 0.5, colour = "#555555", 
              fill = "white", label.size = NA, family="Helvetica", size = 4) +
   geom_segment(aes(x = as.Date("2017-04-30"), y = 0.09, xend = as.Date("2017-01-30"), yend = 0.09), 
-               colour = "#555555", size=0.5) 
+               colour = "#555555", size=0.5) +
+  # Football
+  geom_label(aes(x = as.Date("2017-05-01"), y = 0.37, label = "Football"), 
+             hjust = 0, vjust = 0.5, colour = "#555555", 
+             fill = "white", label.size = NA, family="Helvetica", size = 4) +
+  geom_segment(aes(x = as.Date("2017-04-30"), y = 0.37, xend = as.Date("2017-01-30"), yend = 0.37), 
+               colour = "#555555", size=0.5)
 
   
