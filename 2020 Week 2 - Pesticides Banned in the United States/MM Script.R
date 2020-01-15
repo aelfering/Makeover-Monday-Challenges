@@ -46,7 +46,7 @@ ggplot(pesticide_waffles, aes(x = x, y = y)) +
             fill = pesticide_waffles$colors,
             colour = ifelse(pesticide_waffles$x == 20 & pesticide_waffles$y == 5, 'black', 'white')) +
   labs(title = '#MakeoverMonday 2020 Week #2 | The United States Uses Many Pesticides Banned Across the World',
-       subtitle = "The United States, The European Union, China, and Brazil are not only the world's most dominant agricultural producers, but they are also the world's largest users of pesticide.\nResearch by Nathan Donley from BioMed Central revealed that roughly 1 out of 3 pounds of pesticide used in the United States is banned in the EU, China, and Brazil combined.\nUse of pesticides is harmful not only to the individual, but also to the surrounding ecosystem, too.\n",
+       subtitle = "The United States, the European Union, China, and Brazil are not only the world's most dominant agricultural producers, but they are also the world's largest users of pesticide.\nResearch by Nathan Donley from BioMed Central revealed that roughly 1 out of 3 pounds of pesticide used in the United States is banned in the EU, China, and Brazil combined.\nUse of pesticides is harmful not only to the individual, but also to the surrounding ecosystem, too.\n",
        caption = 'Visual by Alex Elfering\nSource: Donley, Nathan; The USA lags behind other agricultural nations in banning harmful pesticides') +
   theme_waffle() +
   theme(plot.title = element_text(face = 'bold'),
