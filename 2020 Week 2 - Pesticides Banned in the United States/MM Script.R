@@ -46,8 +46,8 @@ ggplot(pesticide_waffles, aes(x = x, y = y)) +
             fill = pesticide_waffles$colors,
             colour = ifelse(pesticide_waffles$x == 20 & pesticide_waffles$y == 5, 'black', 'white')) +
   labs(title = '#MakeoverMonday 2020 Week #2 | The United States Uses Many Pesticides Banned Across the World',
-       subtitle = "The United States, the European Union, China, and Brazil are not only the world's most dominant agricultural producers, but they are also the world's largest users of pesticide.\nResearch by Nathan Donley from BioMed Central revealed that roughly 1 out of 3 pounds of pesticide used in the United States is banned in the EU, China, and Brazil combined.\nUse of pesticides is harmful not only to the individual, but also to the surrounding ecosystem, too.\n",
-       caption = 'Visual by Alex Elfering\nSource: Donley, Nathan; The USA lags behind other agricultural nations in banning harmful pesticides') +
+       subtitle = "The United States, the European Union, China, and Brazil are not only the world's most dominant agricultural producers, but they are also the world's largest users of pesticide. In 2016, the\nUnited States used 1.2 billion pounds of pesticide. Research by Nathan Donley from BioMed Central revealed that roughly 1 out of 3 pounds of pesticide used in the US is banned in the EU,\nChina, and Brazil combined. Use of pesticides is harmful not only to the individual, but also to the surrounding ecosystem, too.\n",
+       caption = 'Visual by Alex Elfering\nSource: Donley, Nathan; The USA lags behind other agricultural nations in banning harmful pesticides\nNumbers are rounded in this visualization.') +
   theme_waffle() +
   theme(plot.title = element_text(face = 'bold'),
         axis.title.x=element_blank(),
@@ -59,19 +59,19 @@ ggplot(pesticide_waffles, aes(x = x, y = y)) +
         legend.position = "none") +
   geom_segment(aes(x = 2, y = 6, xend = 2, yend = 5), 
                colour = "#555555", size=0.5, linetype = "dashed") +
-  geom_label(aes(x = 1.5, y = 6.2, label = "Banned in the EU"), 
+  geom_label(aes(x = 1.5, y = 6.2, label = "Banned in the EU (26.9%)"), 
              hjust = 0, vjust = 0.5, colour = "#555555", 
              fill = "white", label.size = NA, family="Helvetica", size = 4) +
   
   geom_segment(aes(x = 6, y = 6, xend = 6, yend = 5), 
                colour = "#555555", size=0.5, linetype = "dashed") +
-  geom_label(aes(x = 5.5, y = 6.2, label = "Banned in China"), 
+  geom_label(aes(x = 5.5, y = 6.2, label = "Banned in China (3.3%)"), 
              hjust = 0, vjust = 0.5, colour = "#555555", 
              fill = "white", label.size = NA, family="Helvetica", size = 4) +
   
   geom_segment(aes(x = 10, y = 6, xend = 7, yend = 4), 
                colour = "#555555", size=0.5, linetype = "dashed") +
-  geom_label(aes(x = 9.5, y = 6.2, label = "Banned in Brazil"), 
+  geom_label(aes(x = 9.5, y = 6.2, label = "Banned in Brazil (2.2%)"), 
              hjust = 0, vjust = 0.5, colour = "#555555", 
              fill = "white", label.size = NA, family="Helvetica", size = 4) +
   
