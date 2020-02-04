@@ -38,6 +38,6 @@ or non-British James Bond unacceptable. However, the overall sample was ambivale
 While nearly 2 out of 3 people who voted Remain find a gay James Bond acceptable, and 7 out of 10 are fine with a James Bond 
 from an ethnic minority, there is less support for either quality from people who voted Leave. Bothe sides, however, are less 
 supportive of a non-British James Bond character.",
-       caption = "\nNotes: Sample Size is 1,677 GB Adults \n Fieldwork conducted 17th - 18th September 2018 \n Source: YouGov       Visualization by Alex Elfering") +
+       caption = "\nNotes: Sample Size is 1,677 UK Adults \n Fieldwork conducted 17th - 18th September 2018 \n Source: YouGov       Visualization by Alex Elfering") +
   geom_text(size = 3, position = position_stack(vjust = 0.5)) 
 
