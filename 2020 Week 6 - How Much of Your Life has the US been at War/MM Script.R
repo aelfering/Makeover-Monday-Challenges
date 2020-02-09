@@ -14,7 +14,7 @@ war <- read.csv('US life at war.csv')
 war_new_percent <- war %>%
   mutate(New.Percentage = ifelse(X..of.your.life.the.US.has.been.at.war == 100, 1, X..of.your.life.the.US.has.been.at.war)) %>%
   # Adding dots to emphasize my annotations
-  mutate(Dots = ifelse(Birth.year %in% c(1914, 1980, 1995, 2000), 'dot', ''))
+  mutate(Dots = ifelse(Birth.year %in% c(1914, 1980, 1995, 2001), 'dot', ''))
 
 ggplot(war_new_percent, aes(x = Birth.year, y = New.Percentage)) +
   labs(title = 'How Much of Your Life the United States has Been in War',
@@ -68,10 +68,20 @@ geom_curve(aes(x = 1914, y = 0.87, xend = 1917, yend = 0.83),
              colour = "#555555", 
              size=0.5, 
              curvature = 0.2,
-             arrow = arrow(length = unit(0.01, "npc")))  
-geom_curve(aes(x = 1983, y = 0.26, xend = 1980, yend = 0.5), 
+             arrow = arrow(length = unit(0.01, "npc"))) +
+geom_curve(aes(x = 1982, y = 0.26, xend = 1980, yend = 0.48), 
            colour = "#555555", 
            size=0.5, 
            curvature = -0.2,
-           arrow = arrow(length = unit(0.01, "npc"))) 
+           arrow = arrow(length = unit(0.01, "npc"))) +
+geom_curve(aes(x = 1991, y = 0.83, xend = 1995, yend = 0.78), 
+             colour = "#555555", 
+             size=0.5, 
+             curvature = -0.2,
+             arrow = arrow(length = unit(0.01, "npc"))) +  
+geom_curve(aes(x = 2006, y = 0.74, xend = 2001, yend = 0.98), 
+             colour = "#555555", 
+             size=0.5, 
+             curvature = -0.2,
+             arrow = arrow(length = unit(0.01, "npc")))  
 
