@@ -28,7 +28,7 @@ sleep.grade <- dplyr::mutate(sleep,
                              Grade = gsub('12th grade', '12th', Grade))
 
 grade.order <- c('Kind', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th')
-
+  
 ggplot(sleep.grade, 
        aes(x = `Hours.Needed`, 
            xend = `Hours.Averaged`, 
@@ -37,9 +37,9 @@ ggplot(sleep.grade,
   geom_dumbbell(colour = "#dddddd",
                 size = 5,
                 colour_x = "#198462",
-                colour_xend = "#6b6b6b") +
+                colour_xend = "#a8caa6") +
   scale_y_discrete(limits = grade.order) +
-  labs(title="How Much Sleep are American Students by Grade Missing on Average?",
+  labs(title="How Much Sleep are American Students Missing on Average by Grade?",
        subtitle="The older students become, the less sleep they typically need. However, the older students\nbecome, the less sleep they appear to get on average, and the more that deficit appears to grow.\n",
        caption = '\nVisualization by Alex Elfering\nSource: "Costing Kids Sleep" by David Kloser, Savvy Sleeper (2020)\nAs reported by parents with children in grades between K-12.',
        x = 'Hours',
