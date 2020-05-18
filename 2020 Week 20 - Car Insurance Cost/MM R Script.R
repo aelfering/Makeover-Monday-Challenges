@@ -9,10 +9,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(tidyverse)
-library(viridis)
 library(statebins)
-
-options(scipen = 999)
 
 insurance <- read.csv('Cost of car insurance by state.csv')
 
