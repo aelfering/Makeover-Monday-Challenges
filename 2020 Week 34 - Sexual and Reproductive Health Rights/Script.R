@@ -98,4 +98,5 @@ ggplot(africa) +
         panel.background = ggplot2::element_blank(),
         axis.line = element_blank(),
         panel.grid.major.y = element_blank(),
-        panel.grid.major.x = element_blank()) 
+        panel.grid.major.x = element_blank()
+        ) 
