@@ -82,13 +82,16 @@ ggplot(africa) +
   scale_fill_manual(values = c('#ffecc7', '#ffc98e', '#f9a65f', '#e8873c', '#d26922', '#b94d11', '#9e320c')) +
   guides(fill = guide_legend(nrow = 1)) +
   # Labels
-  labs(title = 'Percent of Women with Unmet Contraceptive Needs',
-       subtitle = 'Unmet contraceptive needs can have a lasting impact\non education, employment, and economic wellbeing.',
-       fill = 'Key:',
-       caption = 'Visualization by Alex Elfering\nSource: Guttmacher Institute, Operation Fistula\nFor more information, please visit https://www.guttmacher.org/') +
+  labs(#title = 'Percent of Women with Unmet Contraceptive Needs',
+       #subtitle = 'Unmet contraceptive needs can have a lasting impact\non education, employment, and economic wellbeing.',
+       fill = 'Key:'#,
+       #caption = 'Visualization by Alex Elfering\nSource: Guttmacher Institute, Operation Fistula\nFor more information, please visit https://www.guttmacher.org/'
+       ) +
   # Theme manipulation
   theme(plot.title = element_text(face = 'bold', size = 18, family = 'Arial'),
         legend.position = 'top',
+        legend.text = element_text(size = 14, family = 'Arial'),
+        legend.title = element_text(size = 14, family = 'Arial'),
         plot.subtitle = element_text(size = 15, family = 'Arial'),
         plot.caption = element_text(size = 12, family = 'Arial'),
         axis.title = element_blank(),
