@@ -4,7 +4,8 @@
 # Script by Alex Elfering
 # Last Updated:    24 August 2020     
 
-
+# Will always point to data source 
+setwd("~/Documents/GitHub/Makeover-Monday-Challenges/2020 Week 34 - Sexual and Reproductive Health Rights")
 
 ####  Load packages ####
 list.of.packages <- c("sf", 
@@ -78,7 +79,7 @@ ggplot(africa) +
           color = 'black',
           fill = NA) +
   # Color scale
-  scale_fill_manual(values = c('#f5e3a5', '#fccb8e', '#ffb377', '#ff9a61', '#fe814b', '#fb6535', '#f6441f')) +
+  scale_fill_manual(values = c('#ffecc7', '#ffc98e', '#f9a65f', '#e8873c', '#d26922', '#b94d11', '#9e320c')) +
   guides(fill = guide_legend(nrow = 1)) +
   # Labels
   labs(title = 'Percent of Women with Unmet Contraceptive Needs',
