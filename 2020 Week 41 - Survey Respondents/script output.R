@@ -20,20 +20,26 @@ colnames(book1) <- new_col_names
 
 book1_pct <- dplyr::mutate(book1, Percent.Respondents = Percent/100)
 
+max_percent <- max(book1_pct$Percent.Respondents)
+
 ggplot(book1_pct,
        aes(x = reorder(Industry.Sector, Percent.Respondents),
            y = Percent.Respondents,
            label = percent(Percent.Respondents))) +
   geom_bar(stat = 'identity',
-           position = 'identity') +
+           position = 'identity', 
+           fill = '#73a2c6') +
   coord_flip() +
   geom_text(aes(hjust = 1.2), color = "white") +
   geom_hline(yintercept = 0,
              size = 1) +
-  scale_y_continuous(labels = percent) +
+  scale_y_continuous(limits=c(0,max_percent),
+                     breaks = seq(0, max_percent, by = 0.02),
+                     labels = percent) +
   labs(x = '',
        y = '',
-       title = 'Percent of Survey Respondents',
+       title = 'Percent of Respondents',
+       subtitle = 'In a survey report released in September 2020 by dataIQ, 13% of organizations were from retail. ',
        caption = 'Visualization by Alex Elfering | Data Source: dataIQ') +
   theme(plot.title = element_text(face = 'bold', size = 18, family = 'Arial'),
         legend.position = 'top',
