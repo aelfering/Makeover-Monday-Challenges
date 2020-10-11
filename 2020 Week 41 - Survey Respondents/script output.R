@@ -22,10 +22,14 @@ book1_pct <- dplyr::mutate(book1, Percent.Respondents = Percent/100)
 
 max_percent <- max(book1_pct$Percent.Respondents)
 
-ggplot(book1_pct,
-       aes(x = reorder(Industry.Sector, Percent.Respondents),
-           y = Percent.Respondents,
-           label = percent(Percent.Respondents))) +
+# reorder the industries to put 'other' at the bottom
+book1_tiers <- book1_pct %>%
+  mutate(Is.Not.Other = ifelse(Industry.Sector == 'Other', 0, 1),
+         ordering = as.numeric(Is.Not.Other) + Percent.Respondents,
+         Industry.Sector = fct_reorder(Industry.Sector, ordering, .desc = T)) %>% 
+  ggplot(aes(x = Industry.Sector,
+             y = Percent.Respondents,
+             label = percent(Percent.Respondents))) +
   geom_bar(stat = 'identity',
            position = 'identity', 
            fill = '#73a2c6') +
@@ -39,7 +43,7 @@ ggplot(book1_pct,
   labs(x = '',
        y = '',
        title = 'Percent of Respondents',
-       subtitle = 'In a survey report released in September 2020 by dataIQ, 13% of organizations were from retail. ',
+       subtitle = 'Roughly 13% of organizations interviewed by dataIQ worked in reta ',
        caption = 'Visualization by Alex Elfering | Data Source: dataIQ') +
   theme(plot.title = element_text(face = 'bold', size = 18, family = 'Arial'),
         legend.position = 'top',
@@ -57,8 +61,5 @@ ggplot(book1_pct,
         axis.line = element_line(colour = "#222222", linetype = "solid"),
         panel.grid.major.y = ggplot2::element_blank(),
         panel.grid.major.x = element_line(colour = "#c1c1c1", linetype = "dashed")) 
-
-
-
 
 
