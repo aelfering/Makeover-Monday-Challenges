@@ -22,11 +22,14 @@ book1_pct <- dplyr::mutate(book1, Percent.Respondents = Percent/100)
 
 max_percent <- max(book1_pct$Percent.Respondents)
 
-# reorder the industries to put 'other' at the bottom
+# Building the visualization
+# First I need to sort the industries by the percent of respondents
+# BUT I also want to put 'Other' at the bottom by creating 'tiers'
 book1_pct %>%
-  mutate(Is.Not.Other = ifelse(Industry.Sector == 'Other', 1, 0),
-         ordering = as.numeric(-Is.Not.Other) + Percent.Respondents,
+  mutate(Is.Other = ifelse(Industry.Sector == 'Other', 1, 0),
+         ordering = as.numeric(-Is.Other) + Percent.Respondents,
          Industry.Sector = fct_reorder(Industry.Sector, ordering, .desc = F)) %>% 
+  # the visualization itself
   ggplot(aes(x = Industry.Sector,
              y = Percent.Respondents,
              label = percent(Percent.Respondents))) +
@@ -42,8 +45,8 @@ book1_pct %>%
                      labels = percent) +
   labs(x = '',
        y = '',
-       title = 'Percent of Respondents',
-       subtitle = 'Roughly 13% of organizations interviewed by dataIQ worked in reta ',
+       title = 'Percent of Respondents by Industry Sector',
+       subtitle = 'Roughly 13% of organizations surveyed by dataIQ worked in retail, while 12% worked in an other part of\nfinancial services. However, nearly 11% of respondents worked in an industry not listed.',
        caption = 'Visualization by Alex Elfering | Data Source: dataIQ') +
   theme(plot.title = element_text(face = 'bold', size = 18, family = 'Arial'),
         legend.position = 'top',
