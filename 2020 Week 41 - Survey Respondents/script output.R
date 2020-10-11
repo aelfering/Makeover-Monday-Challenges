@@ -23,20 +23,17 @@ book1_pct <- dplyr::mutate(book1, Percent.Respondents = Percent/100)
 max_percent <- max(book1_pct$Percent.Respondents)
 
 # Building the visualization
-# First I need to sort the industries by the percent of respondents
-# BUT I also want to put 'Other' at the bottom by creating 'tiers'
 book1_pct %>%
-  mutate(Is.Other = ifelse(Industry.Sector == 'Other', 1, 0),
-         ordering = as.numeric(-Is.Other) + Percent.Respondents,
+  mutate(ordering = Percent.Respondents,
          Industry.Sector = fct_reorder(Industry.Sector, ordering, .desc = F)) %>% 
-  # the visualization itself
   ggplot(aes(x = Industry.Sector,
              y = Percent.Respondents,
              label = percent(Percent.Respondents))) +
   geom_bar(stat = 'identity',
-           position = 'identity', 
-           fill = '#73a2c6') +
+           position = 'identity',
+           fill = '#90c7df') +
   coord_flip() +
+  #scale_fill_manual(values = c( '#90c7df', '#00429d')) +
   geom_text(aes(hjust = 1.2), color = "white") +
   geom_hline(yintercept = 0,
              size = 1) +
@@ -46,10 +43,10 @@ book1_pct %>%
   labs(x = '',
        y = '',
        title = 'Percent of Respondents by Industry Sector',
-       subtitle = 'Roughly 13% of organizations surveyed by dataIQ worked in retail, while 12% worked in an other part of\nfinancial services. However, nearly 11% of respondents worked in an industry not listed.\n',
+       subtitle = 'Members of the dataIQ community were surveyed about alignment between their business\nand data strategies. Roughly 13% of organizations worked in retail, however, nearly 11% of\nrespondents worked in an industry not listed. \n',
        caption = 'Visualization by Alex Elfering | Data Source: dataIQ') +
   theme(plot.title = element_text(face = 'bold', size = 18, family = 'Arial'),
-        legend.position = 'top',
+        legend.position = 'none',
         legend.background=element_blank(),
         legend.key=element_blank(),
         legend.text = element_text(size = 12, family = 'Arial'),
