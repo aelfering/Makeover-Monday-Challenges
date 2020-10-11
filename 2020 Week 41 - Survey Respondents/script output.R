@@ -34,7 +34,23 @@ ggplot(book1_pct,
   labs(x = '',
        y = '',
        title = 'Percent of Survey Respondents',
-       caption = 'Visualization by Alex Elfering\nSource: dataIQ')
+       caption = 'Visualization by Alex Elfering | Data Source: dataIQ') +
+  theme(plot.title = element_text(face = 'bold', size = 18, family = 'Arial'),
+        legend.position = 'top',
+        legend.background=element_blank(),
+        legend.key=element_blank(),
+        legend.text = element_text(size = 12, family = 'Arial'),
+        legend.title = element_text(size = 12, family = 'Arial'),
+        plot.subtitle = element_text(size = 15, family = 'Arial'),
+        plot.caption = element_text(size = 12, family = 'Arial'),
+        axis.title = element_text(size = 12, family = 'Arial'),
+        axis.text = element_text(size = 12, family = 'Arial'),
+        strip.text = ggplot2::element_text(size = 12, hjust = 0, face = 'bold', color = 'black', family = 'Arial'),
+        strip.background = element_rect(fill = NA),
+        panel.background = ggplot2::element_blank(),
+        axis.line = element_line(colour = "#222222", linetype = "solid"),
+        panel.grid.major.y = ggplot2::element_blank(),
+        panel.grid.major.x = element_line(colour = "#c1c1c1", linetype = "dashed")) 
 
 
 
