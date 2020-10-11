@@ -46,7 +46,7 @@ book1_pct %>%
   labs(x = '',
        y = '',
        title = 'Percent of Respondents by Industry Sector',
-       subtitle = 'Roughly 13% of organizations surveyed by dataIQ worked in retail, while 12% worked in an other part of\nfinancial services. However, nearly 11% of respondents worked in an industry not listed.',
+       subtitle = 'Roughly 13% of organizations surveyed by dataIQ worked in retail, while 12% worked in an other part of\nfinancial services. However, nearly 11% of respondents worked in an industry not listed.\\n',
        caption = 'Visualization by Alex Elfering | Data Source: dataIQ') +
   theme(plot.title = element_text(face = 'bold', size = 18, family = 'Arial'),
         legend.position = 'top',
