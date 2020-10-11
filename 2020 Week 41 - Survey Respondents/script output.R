@@ -23,10 +23,10 @@ book1_pct <- dplyr::mutate(book1, Percent.Respondents = Percent/100)
 max_percent <- max(book1_pct$Percent.Respondents)
 
 # reorder the industries to put 'other' at the bottom
-book1_tiers <- book1_pct %>%
-  mutate(Is.Not.Other = ifelse(Industry.Sector == 'Other', 0, 1),
-         ordering = as.numeric(Is.Not.Other) + Percent.Respondents,
-         Industry.Sector = fct_reorder(Industry.Sector, ordering, .desc = T)) %>% 
+book1_pct %>%
+  mutate(Is.Not.Other = ifelse(Industry.Sector == 'Other', 1, 0),
+         ordering = as.numeric(-Is.Not.Other) + Percent.Respondents,
+         Industry.Sector = fct_reorder(Industry.Sector, ordering, .desc = F)) %>% 
   ggplot(aes(x = Industry.Sector,
              y = Percent.Respondents,
              label = percent(Percent.Respondents))) +
